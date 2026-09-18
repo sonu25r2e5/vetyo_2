@@ -37,11 +37,24 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               child: Lottie.asset(AppImages.lottie),
             ),
-            SizedBox(height: 20),
-            Text(
-              'Vetyo',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            SizedBox(height: 10),
+            RichText(
+              text: TextSpan(
+                style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
+                children: [
+                  TextSpan(
+                    text: 'Vet',
+                    style: TextStyle(color: Colors.green),
+                  ),
+                  TextSpan(
+                    text: 'yo',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ],
+              ),
             ),
+
+            // Text(
           ],
         ),
       ),
