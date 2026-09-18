@@ -1,9 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:svg_image_provider/svg_image_provider.dart';
-import 'package:vetyo_2/constant/app_colors.dart';
 import 'package:vetyo_2/constant/app_images.dart';
+import 'package:vetyo_2/screens/homescreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const new({super.key});
@@ -13,12 +14,32 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // we do initialize here for moving out.
+  Timer? _timer;
+  // init state screen
+  @override
+  void initState() {
+    super.initState();
 
-  // for routing to next page
+    // it takes memory so we need to dispose it
+    _timer = Timer(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (BuildContext context) => Homescreen()),
+      );
+    });
+    //
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _timer?.cancel();
+  }
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 1), () {});
+
     return Scaffold(
       body: Center(
         child: Column(
